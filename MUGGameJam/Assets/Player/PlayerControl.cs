@@ -101,7 +101,7 @@ public class PlayerControl : MonoBehaviour
 
         if(midair)
         {
-            if (rigid.velocity.y < 0)
+            if (rigid.velocity.y < 200)
                 animator.SetBool("falling", true);
         }else
         {
