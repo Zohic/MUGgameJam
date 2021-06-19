@@ -8,7 +8,7 @@ public class Throwable : MonoBehaviour
     PlayerControl owner;
     public float holdRotation;
     public Transform stickPosition;
-    
+    public float followSpeed;
     void Start()
     {
         
@@ -17,7 +17,9 @@ public class Throwable : MonoBehaviour
     public void GetGrabbed(PlayerControl p)
     {
         owner = p;
-        GetComponent<Rigidbody2D>().isKinematic = true;
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        rb.velocity = Vector2.zero;
+        rb.isKinematic = true;
         GetComponent<BoxCollider2D>().enabled = false;
         
     }
@@ -32,12 +34,28 @@ public class Throwable : MonoBehaviour
 
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        
+        Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+        if (enemy!=null)
+        {
+            Rigidbody2D rb = GetComponent<Rigidbody2D>();
+            //Debug.Log(rb.velocity.magnitude);
+            if (rb.velocity.magnitude>enemy.killObjectSpeed)
+            {
+                rb.velocity = Vector2.zero;
+                Destroy(enemy.gameObject);
+            }
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
         if(owner!=null)
         {
-            transform.position = Vector3.Lerp(transform.position, owner.holder.position, Time.deltaTime*5);
+            transform.position = Vector3.Lerp(transform.position, owner.holder.position, Time.deltaTime* followSpeed);
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, holdRotation*owner.orientation), Time.deltaTime*1.5f);
         }
     }

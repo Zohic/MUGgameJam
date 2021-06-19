@@ -12,16 +12,27 @@ public class Chunk : MonoBehaviour
     public Transform leftEnd;
     public Transform rightEnd;
 
-    public Transform[] groundPlaces;
-    public List<GameObject> groundPrefabs;
+    public GroundSpawner[] groundSpawners;
+    
 
     public Chunk leftNeighbor, rightNeighbor;
     public float width;
     public Transform player;
 
+    public int minGrounds;
+    public int minThrowables;
+    public int minEnemies;
+
+    public int groundsSpawned;
+
     void Start()
     {
-        
+        for(int i=0;i<groundSpawners.Length;i++)
+        {
+            bool spawned = groundSpawners[i].Spawn(minGrounds - groundsSpawned, groundSpawners.Length - i);
+            if (spawned)
+                groundsSpawned += 1;
+        }
     }
 
     public bool CheckForPlayer()

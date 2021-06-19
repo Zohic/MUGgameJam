@@ -78,7 +78,11 @@ public class PlayerControl : MonoBehaviour
             walking = true;
         }
         else
+        {
             animator.SetBool("walking", false);
+            rigid.velocity = new Vector2(0, rigid.velocity.y);
+        }
+            
 
         touchingSomething = rigid.IsTouchingLayers(groundMask);
 
@@ -149,7 +153,7 @@ public class PlayerControl : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q) && toThrow!=null)
         {
             Throw();
         }
