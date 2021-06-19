@@ -1,0 +1,446 @@
+fileFormatVersion: 2
+guid: fd6b0b496a97f7f4198a41e9079c8e3d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6926921998489566100
+    second: slimeeIdleSpriteSheet_0
+  - first:
+      213: 5719798366388395300
+    second: slimeeIdleSpriteSheet_1
+  - first:
+      213: -3955946969219642721
+    second: slimeeIdleSpriteSheet_2
+  - first:
+      213: -1238609476391266270
+    second: slimeeIdleSpriteSheet_3
+  - first:
+      213: 8807954133372081033
+    second: slimeeIdleSpriteSheet_4
+  - first:
+      213: 5352363945224289754
+    second: slimeeIdleSpriteSheet_5
+  - first:
+      213: 7287372182710303689
+    second: slimeeIdleSpriteSheet_6
+  - first:
+      213: -3148445938744741172
+    second: slimeeIdleSpriteSheet_7
+  - first:
+      213: -5682393454063312687
+    second: slimeeIdleSpriteSheet_8
+  - first:
+      213: -7919176588337563328
+    second: slimeeIdleSpriteSheet_9
+  - first:
+      213: -834085971009715941
+    second: slimeeIdleSpriteSheet_10
+  - first:
+      213: -7271492645375384293
+    second: slimeeIdleSpriteSheet_11
+  - first:
+      213: 4773005774891972323
+    second: slimeeIdleSpriteSheet_12
+  - first:
+      213: -5297257047685157943
+    second: slimeeIdleSpriteSheet_13
+  - first:
+      213: 7348675389981085589
+    second: slimeeIdleSpriteSheet_14
+  - first:
+      213: 8725237150746350797
+    second: slimeeIdleSpriteSheet_15
+  - first:
+      213: 4993998753934630572
+    second: slimeeIdleSpriteSheet_16
+  - first:
+      213: 8345241724645922766
+    second: slimeeIdleSpriteSheet_17
+  - first:
+      213: 4774360760724228380
+    second: slimeeIdleSpriteSheet_18
+  - first:
+      213: 7016323499232793830
+    second: slimeeIdleSpriteSheet_19
+  - first:
+      213: 8806657349845531225
+    second: slimeeIdleSpriteSheet_20
+  - first:
+      213: 4051470425203923491
+    second: slimeeIdleSpriteSheet_21
+  - first:
+      213: -7653893514094033603
+    second: slimeeIdleSpriteSheet_22
+  - first:
+      213: -8148798982878013025
+    second: slimeeIdleSpriteSheet_23
+  - first:
+      213: 872314735174056929
+    second: slimeeIdleSpriteSheet_24
+  - first:
+      213: 1496746630564611748
+    second: slimeeIdleSpriteSheet_25
+  - first:
+      213: 4743734813187606583
+    second: slimeeIdleSpriteSheet_26
+  - first:
+      213: 1111431123166932128
+    second: slimeeIdleSpriteSheet_27
+  - first:
+      213: -8889544921376459074
+    second: slimeeIdleSpriteSheet_28
+  - first:
+      213: 5122705227381467974
+    second: slimeeIdleSpriteSheet_29
+  - first:
+      213: 7691502302787183506
+    second: slimeeIdleSpriteSheet_0
+  - first:
+      213: 2375105100331105671
+    second: slimeeIdleSpriteSheet_1
+  - first:
+      213: 2487341693879280999
+    second: slimeeIdleSpriteSheet_2
+  - first:
+      213: 7132625564670109916
+    second: slimeeIdleSpriteSheet_3
+  - first:
+      213: 2881432679274365281
+    second: slimeeIdleSpriteSheet_4
+  - first:
+      213: -713640008004249325
+    second: slimeeIdleSpriteSheet_5
+  - first:
+      213: 4282433061394979896
+    second: slimeeIdleSpriteSheet_6
+  - first:
+      213: 106059255913692557
+    second: slimeeIdleSpriteSheet_7
+  - first:
+      213: -6761908975223966672
+    second: slimeeIdleSpriteSheet_8
+  - first:
+      213: 4130957562409135247
+    second: slimeeIdleSpriteSheet_9
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: slimeeIdleSpriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 197
+        height: 91
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 293aab2d794bdba60800000000000000
+      internalID: 7691502302787183506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slimeeIdleSpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 0
+        width: 197
+        height: 91
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78d3471418116f020800000000000000
+      internalID: 2375105100331105671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slimeeIdleSpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 0
+        width: 197
+        height: 91
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76561b29710d48220800000000000000
+      internalID: 2487341693879280999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slimeeIdleSpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 0
+        width: 197
+        height: 91
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd8280a292d2cf260800000000000000
+      internalID: 7132625564670109916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slimeeIdleSpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 788
+        y: 0
+        width: 197
+        height: 91
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 161c95c51c7ecf720800000000000000
+      internalID: 2881432679274365281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slimeeIdleSpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 985
+        y: 0
+        width: 197
+        height: 91
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31956699134a816f0800000000000000
+      internalID: -713640008004249325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slimeeIdleSpriteSheet_6
+      rect:
+        serializedVersion: 2
+        x: 1182
+        y: 0
+        width: 197
+        height: 91
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83c16d61e224e6b30800000000000000
+      internalID: 4282433061394979896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slimeeIdleSpriteSheet_7
+      rect:
+        serializedVersion: 2
+        x: 1379
+        y: 0
+        width: 197
+        height: 91
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8db0e1d45cc87100800000000000000
+      internalID: 106059255913692557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slimeeIdleSpriteSheet_8
+      rect:
+        serializedVersion: 2
+        x: 1576
+        y: 0
+        width: 197
+        height: 91
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 034ff38fc9fd822a0800000000000000
+      internalID: -6761908975223966672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slimeeIdleSpriteSheet_9
+      rect:
+        serializedVersion: 2
+        x: 1773
+        y: 0
+        width: 197
+        height: 91
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8c2c99240c145930800000000000000
+      internalID: 4130957562409135247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
