@@ -6,8 +6,8 @@ public class Rabbit : WalkingEnemy
 {
     public GameObject laserPrefab;
     public Transform laserOut;
+    public Transform lookCheck;
     public float laserSpeed;
-    public PlayerControl player;
     public LayerMask groundMask;
     public bool attacking;
     public float timer;
@@ -43,31 +43,43 @@ public class Rabbit : WalkingEnemy
         if(Input.GetKeyDown(KeyCode.W))
             ShootLaser(new Vector3(1, 0, 0));
 
-        Ray2D ray;
-        List<RaycastHit2D> hits = new List<RaycastHit2D>();
-        ContactFilter2D filter = new ContactFilter2D();
-        filter.SetLayerMask(groundMask);
-        Physics2D.Linecast(laserOut.position, player.transform.position, filter, hits);
-        if (hits.Count < 1)
+        float dist = Mathf.Abs(player.transform.position.x - transform.position.x);
+
+        if (dist < 2800)
         {
-            walking = false;
-            animator.SetBool("walking", false);
-            if ((player.transform.position - transform.position).x > 0)
-                orientation = 1;
+
+            List<RaycastHit2D> hits = new List<RaycastHit2D>();
+            ContactFilter2D filter = new ContactFilter2D();
+            filter.SetLayerMask(groundMask);
+            Physics2D.Linecast(lookCheck.position, player.transform.position, filter, hits);
+
+            if (hits.Count < 1)
+            {
+                Debug.Log("SEE YOU");
+                walking = false;
+                animator.SetBool("walking", false);
+                if ((player.transform.position - transform.position).x > 0)
+                    orientation = 1;
+                else
+                    orientation = -1;
+
+                rigid.velocity = new Vector2(-rigid.velocity.x, rigid.velocity.y);
+                transform.localScale = new Vector2(orientation, 1);
+
+                timer += Time.deltaTime;
+                if (timer >= attackspeed)
+                {
+                    timer = 0;
+                    ShootPlayer();
+                }
+            }
             else
-                orientation = -1;
-
-            rigid.velocity = new Vector2(-rigid.velocity.x, rigid.velocity.y);
-            transform.localScale = new Vector2(orientation, 1);
-
-            timer += Time.deltaTime;
-            if (timer >= attackspeed)
             {
                 timer = 0;
-                ShootPlayer();
+                animator.SetBool("walking", true);
+                walking = true;
             }
-        }
-        else
+        }else
         {
             timer = 0;
             animator.SetBool("walking", true);

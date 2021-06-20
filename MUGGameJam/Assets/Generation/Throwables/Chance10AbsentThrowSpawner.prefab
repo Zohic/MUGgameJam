@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2051570458357537955}
   - component: {fileID: 2319199250690341906}
   m_Layer: 0
-  m_Name: simpleThrowSpawner
+  m_Name: Chance10AbsentThrowSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,6 +47,6 @@ MonoBehaviour:
   - {fileID: 5698958269030198738, guid: 4afc0829e33b8cf4d85c015d24e7349a, type: 3}
   - {fileID: 2817626878753171835, guid: fc7822644da54e44694580e0649454f0, type: 3}
   chances:
-  - 0.5
-  - 0.5
-  - 0
+  - 0.45
+  - 0.45
+  - 0.1

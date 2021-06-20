@@ -14,10 +14,11 @@ public class Chunk : MonoBehaviour
 
     public SelectorSpawner[] groundSpawners;
     public SelectorSpawner[] throwableSpawners;
+    public SelectorSpawner[] enemiesSpawners;
 
     public Chunk leftNeighbor, rightNeighbor;
     public float width;
-    public Transform player;
+    public PlayerControl player;
 
     public int minGrounds;
     public int minThrowables;
@@ -25,27 +26,41 @@ public class Chunk : MonoBehaviour
 
     public int groundsSpawned;
     public int throwableSpawned;
+    public int enemiesSpawned;
 
     void Start()
     {
-        for(int i=0;i<groundSpawners.Length;i++)
+        GameObject go;
+        for (int i=0;i<groundSpawners.Length;i++)
         {
-            bool spawned = groundSpawners[i].Spawn(minGrounds - groundsSpawned, groundSpawners.Length - i - 1);
+            bool spawned = groundSpawners[i].Spawn(minGrounds - groundsSpawned, groundSpawners.Length - i - 1, out go);
             if (spawned)
                 groundsSpawned += 1;
         }
 
         for (int i = 0; i < throwableSpawners.Length; i++)
         {
-            bool spawned = throwableSpawners[i].Spawn(minThrowables - throwableSpawned, throwableSpawners.Length - i - 1);
+            bool spawned = throwableSpawners[i].Spawn(minThrowables - throwableSpawned, throwableSpawners.Length - i - 1, out go);
             if (spawned)
                 throwableSpawned += 1;
+        }
+
+        for (int i = 0; i < enemiesSpawners.Length; i++)
+        {
+            
+            bool spawned = enemiesSpawners[i].Spawn(minEnemies - enemiesSpawned, enemiesSpawners.Length - i - 1, out go);
+            if (spawned)
+            {
+                go.GetComponent<Enemy>().player = player;
+                enemiesSpawned += 1;
+            }
+                
         }
     }
 
     public bool CheckForPlayer()
     {
-        return (transform.position.x - player.position.x) < (width / 2);
+        return (transform.position.x - player.transform.position.x) < (width / 2);
     }
 
     // Update is called once per frame

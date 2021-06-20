@@ -12,7 +12,7 @@ public class ChankSpawner : MonoBehaviour
     [SerializeField]
     Chunk beginChunk;
 
-    
+    public PlayerControl player;
 
 
     void Attach(Chunk movedOne, Chunk stilOne, bool left)
@@ -34,6 +34,7 @@ public class ChankSpawner : MonoBehaviour
     Chunk CreateRandomChunk(Chunk where, bool left)
     {
         Chunk newChunk = Instantiate(chunkPrefabs[Random.Range(0, chunkPrefabs.Length)]).GetComponent<Chunk>();
+        newChunk.player = player;
         Attach(newChunk, where, left);
         return newChunk;
 

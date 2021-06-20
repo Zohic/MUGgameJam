@@ -29,7 +29,7 @@ public class ProjectTile : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        Debug.Log(collision.gameObject.layer);
+        //Debug.Log(collision.gameObject.layer);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -43,7 +43,7 @@ public class ProjectTile : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        Debug.Log(collision.gameObject.layer);
+        //Debug.Log(collision.gameObject.layer);
     }
 
 }
