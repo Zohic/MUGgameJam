@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
 {
 
     bool alive;
+    Animator animator;
     public float killObjectSpeed;
     void Start()
     {

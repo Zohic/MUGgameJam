@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5698958267273494330}
   - component: {fileID: 5698958267273494331}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: CrateSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,6 +189,7 @@ MonoBehaviour:
     m_Bits: 512
   hitSound: {fileID: 7706841055564951184, guid: 52e8e5609718bb14695485b4e92ad45f,
     type: 3}
+  gravityScale: 400
 --- !u!95 &2372913524779327064
 Animator:
   serializedVersion: 3

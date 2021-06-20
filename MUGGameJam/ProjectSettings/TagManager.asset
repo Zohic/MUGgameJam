@@ -16,8 +16,8 @@ TagManager:
   - ground
   - enemy
   - player
-  - 
-  - 
+  - shield
+  - projectTile
   - 
   - 
   - 

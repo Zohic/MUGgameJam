@@ -10,18 +10,16 @@ public class WalkingEnemy : Enemy
     float checkerRadius;
     [SerializeField]
     LayerMask groundLayer;
-    Rigidbody2D rigid;
+    public Rigidbody2D rigid;
 
     public float speed;
+    public bool walking;
 
-    Animator animator;
-
-    int orientation=1;
+    public int orientation=1;
 
     protected void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
-        animator = GetComponentInChildren<Animator>();
         rigid.velocity = new Vector2(speed, 0);
     }
 
@@ -35,10 +33,13 @@ public class WalkingEnemy : Enemy
     
     protected void Update()
     {
-        rigid.velocity = new Vector2(speed*orientation, rigid.velocity.y);
-        if (Physics2D.OverlapCircleAll(frontChecker.position, checkerRadius, groundLayer).Length>0)
+        if (walking)
         {
-            ChangeOrientation();
+            rigid.velocity = new Vector2(speed * orientation, rigid.velocity.y);
+            if (Physics2D.OverlapCircleAll(frontChecker.position, checkerRadius, groundLayer).Length > 0)
+            {
+                ChangeOrientation();
+            }
         }
     }
 

@@ -16,6 +16,7 @@ public class Throwable : MonoBehaviour
     public LayerMask groundLayer, enemyLayer;
 
     public GameObject hitSound;
+    public float gravityScale;
 
     void Start()
     {
@@ -26,31 +27,36 @@ public class Throwable : MonoBehaviour
         owner = p;
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.zero;
-        rb.isKinematic = true;
-        GetComponent<BoxCollider2D>().enabled = false;
+        //rb.isKinematic = true;
+        //GetComponent<BoxCollider2D>().enabled = false;
+        gameObject.layer = 11;
+        rb.gravityScale = 0;
     }
 
     public void GetThrown(Vector2 throwVelocity)
     {
         owner = null;
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        rb.isKinematic = false;
-        GetComponent<BoxCollider2D>().enabled = true;
+        //rb.isKinematic = false;
+        //GetComponent<BoxCollider2D>().enabled = true;
+        rb.gravityScale = gravityScale;
         rb.velocity = throwVelocity;
         GetComponentInChildren<Animator>().SetBool("thrown", true);
         thrown = true;
-        
+        gameObject.layer = 8;
     }
 
     public void Release()
     {
         owner = null;
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        rb.isKinematic = false;
-        GetComponent<BoxCollider2D>().enabled = true;
+        //rb.isKinematic = false;
+        //GetComponent<BoxCollider2D>().enabled = true;
+        rb.gravityScale = gravityScale;
         rb.velocity = Vector2.zero;
         GetComponentInChildren<Animator>().SetBool("thrown", false);
         thrown = false;
+        gameObject.layer = 8;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

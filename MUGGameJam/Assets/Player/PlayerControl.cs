@@ -33,7 +33,7 @@ public class PlayerControl : MonoBehaviour
 
     //sound
     public GameObject throwSound;
-    
+    public int lives = 3;
 
     void Start()
     {
