@@ -51,7 +51,7 @@ public class Rabbit : WalkingEnemy
         if (hits.Count < 1)
         {
             walking = false;
-
+            animator.SetBool("walking", false);
             if ((player.transform.position - transform.position).x > 0)
                 orientation = 1;
             else
@@ -68,7 +68,12 @@ public class Rabbit : WalkingEnemy
             }
         }
         else
+        {
+            timer = 0;
+            animator.SetBool("walking", true);
             walking = true;
+        }
+            
     }
 
     private void OnDrawGizmos()

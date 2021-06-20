@@ -56,7 +56,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 733273330438706389}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 27, y: 266, z: 0}
+  m_LocalPosition: {x: 19, y: -80, z: 0}
   m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_Children: []
   m_Father: {fileID: 733273331473017578}
@@ -217,17 +217,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b694be37782c5c4b8b42e73e39d62a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 733273330438706392}
   killObjectSpeed: 450
   frontChecker: {fileID: 733273331490083653}
   checkerRadius: 30
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
+  rigid: {fileID: 0}
   speed: 300
+  walking: 0
+  orientation: 1
   laserPrefab: {fileID: 3504676518874064143, guid: 1b94b4555a50b7c4297a993c4b41a60d,
     type: 3}
   laserOut: {fileID: 581541670}
   laserSpeed: 2000
+  player: {fileID: 0}
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 0
+  attacking: 0
+  timer: 0
+  attackspeed: 0
 --- !u!1 &733273331490083652
 GameObject:
   m_ObjectHideFlags: 0

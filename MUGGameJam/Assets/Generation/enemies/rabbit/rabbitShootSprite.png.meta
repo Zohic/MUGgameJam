@@ -1,55 +1,79 @@
 fileFormatVersion: 2
-guid: 68d4cdc7a50d0ba4e999f1b82d581900
+guid: 655edc09b19edda43b708dee85ae344b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5799740638880786424
-    second: rabbitWalkSprite_0
+      213: 514769369343971398
+    second: rabbitShootSprite_0
   - first:
-      213: 7064890778068871482
-    second: rabbitWalkSprite_1
+      213: -227987459024015308
+    second: rabbitShootSprite_1
   - first:
-      213: 4097298304141729649
-    second: rabbitWalkSprite_2
+      213: 7139841083970400525
+    second: rabbitShootSprite_2
   - first:
-      213: 1204373376449195466
-    second: rabbitWalkSprite_3
+      213: 2988290769334944597
+    second: rabbitShootSprite_3
   - first:
-      213: 981449878882959498
-    second: rabbitWalkSprite_4
+      213: -8308578117770028988
+    second: rabbitShootSprite_4
   - first:
-      213: -1623997039095963433
-    second: rabbitWalkSprite_5
+      213: 6691948293772906826
+    second: rabbitShootSprite_5
   - first:
-      213: 7018158182999664065
-    second: rabbitWalkSprite_6
+      213: 1104038259717078013
+    second: rabbitShootSprite_6
   - first:
-      213: 601634459930822597
-    second: rabbitWalkSprite_7
+      213: 2590123540839913010
+    second: rabbitShootSprite_7
   - first:
-      213: -1113072619239001364
-    second: rabbitWalkSprite_0
+      213: 1685489374517067653
+    second: rabbitShootSprite_8
   - first:
-      213: -4642771754295650054
-    second: rabbitWalkSprite_1
+      213: -9219279890257050899
+    second: rabbitShootSprite_9
   - first:
-      213: -9188212811509029025
-    second: rabbitWalkSprite_2
+      213: -6982931582127329111
+    second: rabbitShootSprite_10
   - first:
-      213: 7816020441693386381
-    second: rabbitWalkSprite_3
+      213: 7605499026802433348
+    second: rabbitShootSprite_11
   - first:
-      213: -4691036689003593075
-    second: rabbitWalkSprite_4
+      213: -7462987130069026520
+    second: rabbitShootSprite_0
   - first:
-      213: -273282510619142660
-    second: rabbitWalkSprite_5
+      213: 7997722479943551842
+    second: rabbitShootSprite_1
   - first:
-      213: -2171907072197392200
-    second: rabbitWalkSprite_6
+      213: -7969433789768339637
+    second: rabbitShootSprite_2
   - first:
-      213: 3757107296050768069
-    second: rabbitWalkSprite_7
+      213: -2148285166938383065
+    second: rabbitShootSprite_3
+  - first:
+      213: -511657118964973488
+    second: rabbitShootSprite_4
+  - first:
+      213: 7080412504461003508
+    second: rabbitShootSprite_5
+  - first:
+      213: 648575204767466252
+    second: rabbitShootSprite_6
+  - first:
+      213: 7188105155967222639
+    second: rabbitShootSprite_7
+  - first:
+      213: 2494830124017342430
+    second: rabbitShootSprite_8
+  - first:
+      213: 4896854492255310872
+    second: rabbitShootSprite_9
+  - first:
+      213: 3402532555384002099
+    second: rabbitShootSprite_10
+  - first:
+      213: -985161288985836862
+    second: rabbitShootSprite_11
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -147,117 +171,117 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: rabbitWalkSprite_0
+      name: rabbitShootSprite_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 1
+        x: 4
+        y: 3
+        width: 216
+        height: 494
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8297ceceeb42e6890800000000000000
+      internalID: -7462987130069026520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rabbitShootSprite_1
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 3
+        width: 210
+        height: 497
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26b0135c83e9dfe60800000000000000
+      internalID: 7997722479943551842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rabbitShootSprite_2
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 3
+        width: 211
+        height: 496
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4fecdb2132e66190800000000000000
+      internalID: -7969433789768339637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rabbitShootSprite_3
+      rect:
+        serializedVersion: 2
+        x: 703
+        y: 3
+        width: 213
+        height: 494
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72d9564d502cf22e0800000000000000
+      internalID: -2148285166938383065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rabbitShootSprite_4
+      rect:
+        serializedVersion: 2
+        x: 937
+        y: 3
+        width: 222
+        height: 477
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0500b49af8a36e8f0800000000000000
+      internalID: -511657118964973488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rabbitShootSprite_5
+      rect:
+        serializedVersion: 2
+        x: 1169
+        y: 3
         width: 215
-        height: 492
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ce2bb01a9529d80f0800000000000000
-      internalID: -1113072619239001364
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rabbitWalkSprite_1
-      rect:
-        serializedVersion: 2
-        x: 218
-        y: 15
-        width: 217
-        height: 478
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: af89dfb10bf819fb0800000000000000
-      internalID: -4642771754295650054
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rabbitWalkSprite_2
-      rect:
-        serializedVersion: 2
-        x: 437
-        y: 31
-        width: 219
-        height: 462
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f57af411129ec7080800000000000000
-      internalID: -9188212811509029025
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rabbitWalkSprite_3
-      rect:
-        serializedVersion: 2
-        x: 658
-        y: 19
-        width: 217
-        height: 474
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d8673504e25187c60800000000000000
-      internalID: 7816020441693386381
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rabbitWalkSprite_4
-      rect:
-        serializedVersion: 2
-        x: 877
-        y: 18
-        width: 215
-        height: 475
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d82cd9b4cf616eeb0800000000000000
-      internalID: -4691036689003593075
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rabbitWalkSprite_5
-      rect:
-        serializedVersion: 2
-        x: 1094
-        y: 4
-        width: 218
         height: 489
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -266,20 +290,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cf51837210b153cf0800000000000000
-      internalID: -273282510619142660
+      spriteID: 4fac1afb8ada24260800000000000000
+      internalID: 7080412504461003508
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rabbitWalkSprite_6
+      name: rabbitShootSprite_6
       rect:
         serializedVersion: 2
-        x: 1314
-        y: 13
-        width: 220
-        height: 480
+        x: 1402
+        y: 3
+        width: 206
+        height: 497
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -287,20 +311,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b8048c6606dbd1e0800000000000000
-      internalID: -2171907072197392200
+      spriteID: c038a4266b3300900800000000000000
+      internalID: 648575204767466252
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rabbitWalkSprite_7
+      name: rabbitShootSprite_7
       rect:
         serializedVersion: 2
-        x: 1536
-        y: 5
-        width: 218
-        height: 488
+        x: 1636
+        y: 3
+        width: 207
+        height: 497
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -308,8 +332,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5c862240e2de32430800000000000000
-      internalID: 3757107296050768069
+      spriteID: f63849d1e8741c360800000000000000
+      internalID: 7188105155967222639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rabbitShootSprite_8
+      rect:
+        serializedVersion: 2
+        x: 1868
+        y: 3
+        width: 210
+        height: 497
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed75ff497ca6f9220800000000000000
+      internalID: 2494830124017342430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rabbitShootSprite_9
+      rect:
+        serializedVersion: 2
+        x: 2101
+        y: 3
+        width: 212
+        height: 496
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81457af473f15f340800000000000000
+      internalID: 4896854492255310872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rabbitShootSprite_10
+      rect:
+        serializedVersion: 2
+        x: 2335
+        y: 3
+        width: 213
+        height: 494
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3369d5ce459383f20800000000000000
+      internalID: 3402532555384002099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rabbitShootSprite_11
+      rect:
+        serializedVersion: 2
+        x: 2567
+        y: 3
+        width: 215
+        height: 494
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c2888bf6010452f0800000000000000
+      internalID: -985161288985836862
       vertices: []
       indices: 
       edges: []
