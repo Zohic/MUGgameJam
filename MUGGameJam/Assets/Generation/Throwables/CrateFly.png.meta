@@ -1,7 +1,31 @@
 fileFormatVersion: 2
-guid: 94f9b3566262f0d419978f134bfd9d9c
+guid: b5442219eec76b54cbde4a2328f16e84
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -9051758133020966626
+    second: CrateFly_0
+  - first:
+      213: -7349059118308728959
+    second: CrateFly_1
+  - first:
+      213: -3890235519812000822
+    second: CrateFly_2
+  - first:
+      213: -652527968934209840
+    second: CrateFly_3
+  - first:
+      213: 6126538427111272079
+    second: CrateFly_4
+  - first:
+      213: -1430020963217747038
+    second: CrateFly_5
+  - first:
+      213: 6589172181044655364
+    second: CrateFly_6
+  - first:
+      213: -7934834758455220764
+    second: CrateFly_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -31,7 +55,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -97,7 +121,175 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: CrateFly_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 90
+        width: 248
+        height: 274
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e114880bfe1b16280800000000000000
+      internalID: -9051758133020966626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrateFly_1
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 0
+        width: 349
+        height: 364
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18fdcdb3ba5e20a90800000000000000
+      internalID: -7349059118308728959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrateFly_2
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 91
+        width: 310
+        height: 273
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac3aff4f76b130ac0800000000000000
+      internalID: -3890235519812000822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrateFly_3
+      rect:
+        serializedVersion: 2
+        x: 909
+        y: 21
+        width: 346
+        height: 343
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d65badf441c1f6f0800000000000000
+      internalID: -652527968934209840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrateFly_4
+      rect:
+        serializedVersion: 2
+        x: 1257
+        y: 66
+        width: 301
+        height: 298
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8e6fba5d36d50550800000000000000
+      internalID: 6126538427111272079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrateFly_5
+      rect:
+        serializedVersion: 2
+        x: 1559
+        y: 20
+        width: 357
+        height: 344
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a35b02b28b872ce0800000000000000
+      internalID: -1430020963217747038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrateFly_6
+      rect:
+        serializedVersion: 2
+        x: 1916
+        y: 112
+        width: 287
+        height: 252
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4057d0f0031717b50800000000000000
+      internalID: 6589172181044655364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CrateFly_7
+      rect:
+        serializedVersion: 2
+        x: 2204
+        y: 4
+        width: 349
+        height: 360
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e5aad6e3ddc1e190800000000000000
+      internalID: -7934834758455220764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

@@ -139,7 +139,7 @@ public class PlayerControl : MonoBehaviour
             }
         }*/
 
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F) && toThrow == null)
         {
             Collider2D[] colls = Physics2D.OverlapCircleAll(grabber.position, grabberRadius);
             foreach (Collider2D c in colls)
@@ -148,6 +148,7 @@ public class PlayerControl : MonoBehaviour
                 if (thr != null)
                 {
                     Grab(thr);
+                    break;
                 }
             }
 
