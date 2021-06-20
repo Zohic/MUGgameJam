@@ -9,9 +9,16 @@ public class Throwable : MonoBehaviour
     public float holdRotation;
     public Transform stickPosition;
     public float followSpeed;
+
+    public GameObject hitParticle;
+
+    public bool thrown;
+    public LayerMask groundLayer, enemyLayer;
+
+    public GameObject hitSound;
+
     void Start()
     {
-        
     }
 
     public void GetGrabbed(PlayerControl p)
@@ -21,7 +28,6 @@ public class Throwable : MonoBehaviour
         rb.velocity = Vector2.zero;
         rb.isKinematic = true;
         GetComponent<BoxCollider2D>().enabled = false;
-        
     }
 
     public void GetThrown(Vector2 throwVelocity)
@@ -31,23 +37,49 @@ public class Throwable : MonoBehaviour
         rb.isKinematic = false;
         GetComponent<BoxCollider2D>().enabled = true;
         rb.velocity = throwVelocity;
+        GetComponentInChildren<Animator>().SetBool("thrown", true);
+        thrown = true;
+        
+    }
 
+    public void Release()
+    {
+        owner = null;
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        rb.isKinematic = false;
+        GetComponent<BoxCollider2D>().enabled = true;
+        rb.velocity = Vector2.zero;
+        GetComponentInChildren<Animator>().SetBool("thrown", false);
+        thrown = false;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        
-        Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-        if (enemy!=null)
+        if(thrown)
         {
-            Rigidbody2D rb = GetComponent<Rigidbody2D>();
-            //Debug.Log(rb.velocity.magnitude);
-            if (rb.velocity.magnitude>enemy.killObjectSpeed)
+            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+            if (enemy != null)
             {
-                rb.velocity = Vector2.zero;
-                Destroy(enemy.gameObject);
+                Rigidbody2D rb = GetComponent<Rigidbody2D>();
+                //Debug.Log(rb.velocity.magnitude);
+                if (rb.velocity.magnitude > enemy.killObjectSpeed)
+                {
+                    Destroy(Instantiate(hitSound, transform.position, Quaternion.identity), 1);
+                    rb.velocity = Vector2.zero;
+                    Destroy(Instantiate(hitParticle, transform.position + new Vector3(0, 0, -5), Quaternion.identity), 1);
+                    Destroy(gameObject);
+                    Destroy(enemy.gameObject);
+                }
+            }
+            
+            if (collision.gameObject.layer == 8 || collision.gameObject.layer == 9)
+            {
+                Debug.Log(collision.gameObject.layer);
+                Release();
             }
         }
+        
+
     }
 
     // Update is called once per frame

@@ -57,7 +57,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 455.47247, y: 279.08112}
-  m_EdgeRadius: 15
+  m_EdgeRadius: 0
 --- !u!1 &1475833518866832082
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,7 +197,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 455.47247, y: 279.08112}
-  m_EdgeRadius: 15
+  m_EdgeRadius: 0
 --- !u!1 &4477834850120178970
 GameObject:
   m_ObjectHideFlags: 0
@@ -248,14 +248,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfb3eda2d630425479678dcaa57aeff8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chanceOverTime:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   leftEnd: {fileID: 4595429353947761554}
   rightEnd: {fileID: 8955507605490726840}
-  groundPlaces:
-  - {fileID: 0}
-  - {fileID: 0}
-  groundPrefabs:
-  - {fileID: 0}
-  - {fileID: 0}
+  groundSpawners: []
+  leftNeighbor: {fileID: 0}
+  rightNeighbor: {fileID: 0}
+  width: 0
+  player: {fileID: 0}
+  minGrounds: 0
+  minThrowables: 0
+  minEnemies: 0
+  groundsSpawned: 0
 --- !u!1 &4477834850797218738
 GameObject:
   m_ObjectHideFlags: 0
