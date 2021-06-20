@@ -24,15 +24,29 @@ public class PlayerControl : MonoBehaviour
     public bool midair = false;
     public bool walking = false;
 
-
-
-
+    //grab system
+    public Throwable toThrow;
+    public Transform holder;
+    public Transform grabber;
+    public float grabberRadius;
+    public Vector2 throwVelocity;
     void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
+    void Grab(Throwable throwable)
+    {
+        throwable.GetGrabbed(this);
+        toThrow = throwable;
+    }
+
+    void Throw()
+    {
+        toThrow.GetThrown(new Vector3(-throwVelocity.x*orientation, throwVelocity.y));
+        toThrow = null;
+    }
 
     void Update()
     {
@@ -48,7 +62,7 @@ public class PlayerControl : MonoBehaviour
             }
 
             orientation = 1;
-            spriteRenderer.flipX = true;
+            transform.localScale = new Vector2(-1, 1);
             walking = true;
         }
         else if (Input.GetKey(KeyCode.D))
@@ -59,12 +73,16 @@ public class PlayerControl : MonoBehaviour
             {
                 animator.SetBool("walking", true);
             }
-            orientation = 0;
-            spriteRenderer.flipX = false;
+            orientation = -1;
+            transform.localScale = new Vector2(1, 1);
             walking = true;
         }
         else
+        {
             animator.SetBool("walking", false);
+            rigid.velocity = new Vector2(0, rigid.velocity.y);
+        }
+            
 
         touchingSomething = rigid.IsTouchingLayers(groundMask);
 
@@ -83,7 +101,7 @@ public class PlayerControl : MonoBehaviour
 
         if (touchingSomething)
         {
-            
+
             Collider2D[] grounds = Physics2D.OverlapCircleAll(groundChecker.position, groundCheckerRadius, groundMask);
             if (grounds.Length > 0)
             {
@@ -99,11 +117,12 @@ public class PlayerControl : MonoBehaviour
             midair = true;
         }
 
-        if(midair)
+        if (midair)
         {
             if (rigid.velocity.y < 200)
                 animator.SetBool("falling", true);
-        }else
+        }
+        else
         {
             animator.SetBool("falling", false);
         }
@@ -120,6 +139,24 @@ public class PlayerControl : MonoBehaviour
             }
         }*/
 
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            Collider2D[] colls = Physics2D.OverlapCircleAll(grabber.position, grabberRadius);
+            foreach (Collider2D c in colls)
+            {
+                Throwable thr = c.gameObject.GetComponent<Throwable>();
+                if (thr != null)
+                {
+                    Grab(thr);
+                }
+            }
+
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q) && toThrow!=null)
+        {
+            Throw();
+        }
     }
     private void LateUpdate()
     {
@@ -134,5 +171,6 @@ public class PlayerControl : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(groundChecker.position, groundCheckerRadius);
+        Gizmos.DrawWireSphere(grabber.position, grabberRadius);
     }
 }
