@@ -30,6 +30,11 @@ public class PlayerControl : MonoBehaviour
     public Transform grabber;
     public float grabberRadius;
     public Vector2 throwVelocity;
+
+    //sound
+    public GameObject throwSound;
+    
+
     void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
@@ -40,12 +45,14 @@ public class PlayerControl : MonoBehaviour
     {
         throwable.GetGrabbed(this);
         toThrow = throwable;
+        
     }
 
     void Throw()
     {
         toThrow.GetThrown(new Vector3(-throwVelocity.x*orientation, throwVelocity.y));
         toThrow = null;
+        Destroy(Instantiate(throwSound, transform.position, Quaternion.identity), 1);
     }
 
     void Update()
@@ -139,19 +146,25 @@ public class PlayerControl : MonoBehaviour
             }
         }*/
 
-        if (Input.GetKeyDown(KeyCode.F) && toThrow == null)
+        if (Input.GetKeyDown(KeyCode.F))
         {
-            Collider2D[] colls = Physics2D.OverlapCircleAll(grabber.position, grabberRadius);
-            foreach (Collider2D c in colls)
+            if (toThrow == null)
             {
-                Throwable thr = c.gameObject.GetComponent<Throwable>();
-                if (thr != null)
+                Collider2D[] colls = Physics2D.OverlapCircleAll(grabber.position, grabberRadius);
+                foreach (Collider2D c in colls)
                 {
-                    Grab(thr);
-                    break;
+                    Throwable thr = c.gameObject.GetComponent<Throwable>();
+                    if (thr != null)
+                    {
+                        Grab(thr);
+                        break;
+                    }
                 }
+            }else
+            {
+                toThrow.Release();
+                toThrow = null;
             }
-
         }
 
         if (Input.GetKeyDown(KeyCode.Q) && toThrow!=null)

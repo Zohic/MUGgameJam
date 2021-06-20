@@ -12,7 +12,7 @@ public class Chunk : MonoBehaviour
     public Transform leftEnd;
     public Transform rightEnd;
 
-    public GroundSpawner[] groundSpawners;
+    public SelectorSpawner[] groundSpawners;
     
 
     public Chunk leftNeighbor, rightNeighbor;
@@ -29,7 +29,7 @@ public class Chunk : MonoBehaviour
     {
         for(int i=0;i<groundSpawners.Length;i++)
         {
-            bool spawned = groundSpawners[i].Spawn(minGrounds - groundsSpawned, groundSpawners.Length - i);
+            bool spawned = groundSpawners[i].Spawn(minGrounds - groundsSpawned, groundSpawners.Length - i - 1);
             if (spawned)
                 groundsSpawned += 1;
         }

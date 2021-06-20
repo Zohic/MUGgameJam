@@ -2,18 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GroundSpawner : MonoBehaviour
+public class SelectorSpawner : MonoBehaviour
 {
     public GameObject[] possiblePrefabs;
     [SerializeField]
     float[] chances;
 
-    public int spawned;
-    public int needToSpawn;
-
     Chunk chunk;
 
-    public bool Spawn(int needToSpawn, int spawnersLeft)
+    public bool Spawn(int needToSpawn, int spawnersLeft, int parametr = 0)
     {
         float rand = Random.Range(0.0f, 1.0f);
         float sum = 0;

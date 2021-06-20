@@ -187,6 +187,8 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 512
+  hitSound: {fileID: 7706841055564951184, guid: 52e8e5609718bb14695485b4e92ad45f,
+    type: 3}
 --- !u!95 &2372913524779327064
 Animator:
   serializedVersion: 3

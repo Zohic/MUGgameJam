@@ -15,9 +15,10 @@ public class Throwable : MonoBehaviour
     public bool thrown;
     public LayerMask groundLayer, enemyLayer;
 
+    public GameObject hitSound;
+
     void Start()
     {
-        
     }
 
     public void GetGrabbed(PlayerControl p)
@@ -36,7 +37,7 @@ public class Throwable : MonoBehaviour
         rb.isKinematic = false;
         GetComponent<BoxCollider2D>().enabled = true;
         rb.velocity = throwVelocity;
-        GetComponentInChildren<Animator>().SetTrigger("thrown");
+        GetComponentInChildren<Animator>().SetBool("thrown", true);
         thrown = true;
         
     }
@@ -48,7 +49,7 @@ public class Throwable : MonoBehaviour
         rb.isKinematic = false;
         GetComponent<BoxCollider2D>().enabled = true;
         rb.velocity = Vector2.zero;
-        GetComponentInChildren<Animator>().SetTrigger("stil");
+        GetComponentInChildren<Animator>().SetBool("thrown", false);
         thrown = false;
     }
 
@@ -63,6 +64,7 @@ public class Throwable : MonoBehaviour
                 //Debug.Log(rb.velocity.magnitude);
                 if (rb.velocity.magnitude > enemy.killObjectSpeed)
                 {
+                    Destroy(Instantiate(hitSound, transform.position, Quaternion.identity), 1);
                     rb.velocity = Vector2.zero;
                     Destroy(Instantiate(hitParticle, transform.position + new Vector3(0, 0, -5), Quaternion.identity), 1);
                     Destroy(gameObject);
