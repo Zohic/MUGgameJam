@@ -5,6 +5,7 @@
         _MainTex("Texture", 2D) = "white" {}
         _NormalMap("TransparencyMask", 2D)="white" {}
         _AddTex("AdditionalTexture", 2D) = "white" {}
+        _OffsetFloatt("TextureOffsetCoof", Float) = 0.5
     }
     SubShader
     {
@@ -36,6 +37,8 @@
                 float4 vertex : SV_POSITION;
             };
 
+            float _OffsetFloatt;
+
             sampler2D _MainTex;
             float4 _MainTex_ST;
 
@@ -59,12 +62,20 @@
                 fixed4 col = tex2D(_MainTex, i.uv);
                
                 float2 transUV = TRANSFORM_TEX(i.uv, _NormalMap);
+
                 if (transUV.x > 0)
                     transUV = transUV % 1;
                 else
                     transUV = float2(floor(abs(transUV.x)+1), 0) + transUV;
 
-                col *= tex2D(_AddTex, transUV);
+                float2 addUV = TRANSFORM_TEX(float2(i.uv.x * _OffsetFloatt, i.uv.y), _NormalMap);
+
+                if (addUV.x > 0)
+                    addUV = addUV % 1;
+                else
+                    addUV = float2(floor(abs(addUV.x) + 1), 0) + addUV;
+
+                col *= tex2D(_AddTex, addUV);
                 //if (transUV.x > 0)
                 //    transUV = transUV;
                // else

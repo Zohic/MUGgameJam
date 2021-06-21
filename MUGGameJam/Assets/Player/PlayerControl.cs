@@ -31,6 +31,8 @@ public class PlayerControl : MonoBehaviour
     public float grabberRadius;
     public Vector2 throwVelocity;
 
+    public Hearts heart;
+
     //sound
     public GameObject throwSound;
     public int lives = 3;
@@ -48,6 +50,11 @@ public class PlayerControl : MonoBehaviour
         
     }
 
+    public void GetHit()
+    {
+        lives -= 1;
+        heart.LoseLife();
+    }
     void Throw()
     {
         toThrow.GetThrown(new Vector3(-throwVelocity.x*orientation, throwVelocity.y));

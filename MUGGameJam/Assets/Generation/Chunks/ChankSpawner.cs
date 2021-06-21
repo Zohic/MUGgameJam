@@ -13,7 +13,9 @@ public class ChankSpawner : MonoBehaviour
     Chunk beginChunk;
 
     public PlayerControl player;
+    public HandControl hand;
 
+    
 
     void Attach(Chunk movedOne, Chunk stilOne, bool left)
     {
@@ -40,25 +42,148 @@ public class ChankSpawner : MonoBehaviour
 
     }
 
-    void Start()
+    void ClearChunks(Chunk begin, bool dir, int num)
     {
-        Chunk prevOne = beginChunk;
-        for (int i = 0; i < 3; i++) 
+
+        List<Chunk> toDelete = new List<Chunk>();
+        Chunk cur = begin;
+
+        
+
+        for(int i=0;i<num;i++)
         {
-            prevOne = CreateRandomChunk(prevOne, false);
+            if(dir)
+            {
+                if(cur.leftNeighbor!=null)
+                {
+                    toDelete.Add(cur.leftNeighbor);
+                    cur = cur.leftNeighbor;
+                }
+                
+            }else
+            {
+                if (cur.rightNeighbor != null)
+                {
+                    toDelete.Add(cur.rightNeighbor);
+                    cur = cur.rightNeighbor;
+                }
+            }
         }
 
-        prevOne = beginChunk;
-        for (int i = 0; i < 3; i++)
+        if (dir)
+            begin.leftNeighbor = null;
+        else
+            begin.rightNeighbor = null;
+
+        for (int i = 0; i < toDelete.Count; i++)
         {
-            prevOne = CreateRandomChunk(prevOne, true);
+            Destroy(toDelete[i].gameObject);
+        }
+
+    }
+
+    public Chunk FindChunk(Vector3 pos)
+    {
+        Chunk playerChunk = beginChunk;
+        bool found = true;
+        while (!playerChunk.CheckFor(pos))
+        {
+            if (playerChunk.leftNeighbor != null)
+                playerChunk = playerChunk.leftNeighbor;
+            else
+            {
+                found = false;
+                break;
+            }
+        }
+        if (!found)
+        {
+            found = true;
+            while (!playerChunk.CheckFor(pos))
+            {
+                if (playerChunk.rightNeighbor != null)
+                    playerChunk = playerChunk.rightNeighbor;
+                else
+                {
+                    found = false;
+                    break;
+                }
+            }
+        }
+
+        if (found)
+        {
+            //Debug.Log(playerChunk.transform.position);
+            return playerChunk;
+            
+        }
+        else
+        {
+            return null;
         }
     }
 
-    // Update is called once per frame
+    public void ClearForSpikes()
+    {
+        Chunk cur = FindChunk(player.transform.position);
+        if(hand.Dir)
+        {
+            if(cur.leftNeighbor!=null)
+                ClearChunks(cur.leftNeighbor, hand.Dir, 10);
+            else
+                ClearChunks(cur, hand.Dir, 10);
+        }
+        else
+        {
+            if (cur.rightNeighbor != null)
+                ClearChunks(cur.rightNeighbor, hand.Dir, 10);
+            else
+                ClearChunks(cur, hand.Dir, 10);
+        }
+        
+        beginChunk = FindChunk(player.transform.position);
+    }
+
+
+    public void AddRandomChunks(Chunk begin, bool dir, int num)
+    {
+        Chunk prevOne = begin;
+        for (int i = 0; i < num; i++)
+        {
+            prevOne = CreateRandomChunk(prevOne, dir);
+        }
+    }
+
+    public void SpawnAfterSpikes()
+    {
+        Chunk spikeChunk;
+        if (hand.Dir)
+        {
+            spikeChunk = FindChunk(hand.spikes[0].transform.position);
+            ClearChunks(spikeChunk, hand.Dir, 10);
+            AddRandomChunks(spikeChunk, hand.Dir, 4);
+        }
+        else
+        {
+            spikeChunk = FindChunk(hand.spikes[1].transform.position);
+            ClearChunks(spikeChunk, hand.Dir, 10);
+            AddRandomChunks(spikeChunk, hand.Dir, 4);
+        }
+       
+        
+    }
+
+    void Start()
+    {
+        AddRandomChunks(beginChunk, true, 4);
+        AddRandomChunks(beginChunk, false, 4);
+    }
+
+    
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.T))
+            ClearChunks(beginChunk, false, 10);
     }
 
 }

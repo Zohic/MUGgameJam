@@ -36,7 +36,7 @@ public class ProjectTile : MonoBehaviour
         PlayerControl plr = collision.gameObject.GetComponent<PlayerControl>();
         if (plr != null)
         {
-            plr.lives -= 1;
+            plr.GetHit();
             Destroy(gameObject);
         }
         else if(collision.gameObject.layer != 9 && collision.gameObject.layer != 12)

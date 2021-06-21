@@ -61,29 +61,29 @@ public class Throwable : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(thrown)
+        
+        Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+        if (enemy != null)
         {
-            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-            if (enemy != null)
+            Rigidbody2D rb = GetComponent<Rigidbody2D>();
+            //Debug.Log(rb.velocity.magnitude);
+            if (thrown || rb.velocity.magnitude >= enemy.killObjectSpeed)
             {
-                Rigidbody2D rb = GetComponent<Rigidbody2D>();
-                //Debug.Log(rb.velocity.magnitude);
-                if (rb.velocity.magnitude > enemy.killObjectSpeed)
-                {
-                    Destroy(Instantiate(hitSound, transform.position, Quaternion.identity), 1);
-                    rb.velocity = Vector2.zero;
-                    Destroy(Instantiate(hitParticle, transform.position + new Vector3(0, 0, -5), Quaternion.identity), 1);
-                    Destroy(gameObject);
-                    Destroy(enemy.gameObject);
-                }
-            }
-            
-            if (collision.gameObject.layer == 8 || collision.gameObject.layer == 9)
-            {
-                Debug.Log(collision.gameObject.layer);
-                Release();
+                Destroy(Instantiate(hitSound, transform.position, Quaternion.identity), 1);
+                rb.velocity = Vector2.zero;
+                Destroy(Instantiate(hitParticle, transform.position + new Vector3(0, 0, -1), Quaternion.identity), 2);
+                Destroy(gameObject);
+                Destroy(enemy.gameObject);
+
             }
         }
+            
+        if (thrown && (collision.gameObject.layer == 8 || collision.gameObject.layer == 9))
+        {
+            Debug.Log(collision.gameObject.layer);
+            Release();
+        }
+        
         
 
     }

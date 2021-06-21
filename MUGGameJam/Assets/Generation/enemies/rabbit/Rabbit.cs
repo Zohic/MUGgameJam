@@ -55,7 +55,7 @@ public class Rabbit : WalkingEnemy
 
             if (hits.Count < 1)
             {
-                Debug.Log("SEE YOU");
+                //Debug.Log("SEE YOU");
                 walking = false;
                 animator.SetBool("walking", false);
                 if ((player.transform.position - transform.position).x > 0)

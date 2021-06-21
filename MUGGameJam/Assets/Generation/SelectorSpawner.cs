@@ -8,8 +8,9 @@ public class SelectorSpawner : MonoBehaviour
     [SerializeField]
     float[] chances;
 
-    Chunk chunk;
+    public Chunk chunk;
 
+    public bool spawnOnStart;
     public bool Spawn(int needToSpawn, int spawnersLeft, out GameObject spawned)
     {
         float rand = Random.Range(0.0f, 1.0f);
@@ -21,7 +22,7 @@ public class SelectorSpawner : MonoBehaviour
             {
                 if (i < chances.Length - 1)
                 {
-                    spawned = Instantiate(possiblePrefabs[i], transform.position, Quaternion.identity);
+                    spawned = Instantiate(possiblePrefabs[i], transform.position, Quaternion.identity, chunk.transform);
                     Destroy(gameObject);
                     return true;
                 }
@@ -47,7 +48,24 @@ public class SelectorSpawner : MonoBehaviour
 
     void Start()
     {
-       
+        if (spawnOnStart)
+        {
+            float rand = Random.Range(0.0f, 1.0f);
+            float sum = 0;
+            for (int i = 0; i < chances.Length; i++)
+            {
+                sum += chances[i];
+                if (rand <= sum)
+                {
+                    if (i < chances.Length - 1)
+                    {
+                        Instantiate(possiblePrefabs[i], transform.position, Quaternion.identity, chunk.transform);
+                        break;
+                    }
+                }
+            }
+            Destroy(gameObject);
+        }
     }
 
     // Update is called once per frame

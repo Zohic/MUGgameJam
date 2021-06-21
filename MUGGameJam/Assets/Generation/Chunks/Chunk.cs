@@ -33,6 +33,7 @@ public class Chunk : MonoBehaviour
         GameObject go;
         for (int i=0;i<groundSpawners.Length;i++)
         {
+            groundSpawners[i].chunk = this;
             bool spawned = groundSpawners[i].Spawn(minGrounds - groundsSpawned, groundSpawners.Length - i - 1, out go);
             if (spawned)
                 groundsSpawned += 1;
@@ -40,6 +41,7 @@ public class Chunk : MonoBehaviour
 
         for (int i = 0; i < throwableSpawners.Length; i++)
         {
+            throwableSpawners[i].chunk = this;
             bool spawned = throwableSpawners[i].Spawn(minThrowables - throwableSpawned, throwableSpawners.Length - i - 1, out go);
             if (spawned)
                 throwableSpawned += 1;
@@ -47,7 +49,7 @@ public class Chunk : MonoBehaviour
 
         for (int i = 0; i < enemiesSpawners.Length; i++)
         {
-            
+            enemiesSpawners[i].chunk = this;
             bool spawned = enemiesSpawners[i].Spawn(minEnemies - enemiesSpawned, enemiesSpawners.Length - i - 1, out go);
             if (spawned)
             {
@@ -58,9 +60,9 @@ public class Chunk : MonoBehaviour
         }
     }
 
-    public bool CheckForPlayer()
+    public bool CheckFor(Vector3 pos)
     {
-        return (transform.position.x - player.transform.position.x) < (width / 2);
+        return Mathf.Abs((transform.position.x - pos.x)) < (width / 2);
     }
 
     // Update is called once per frame
