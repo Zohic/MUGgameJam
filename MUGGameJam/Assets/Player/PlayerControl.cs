@@ -31,11 +31,17 @@ public class PlayerControl : MonoBehaviour
     public float grabberRadius;
     public Vector2 throwVelocity;
 
+    public float lifeTime = 0;
+
     public Hearts heart;
+
+    public UIController uier;
 
     //sound
     public GameObject throwSound;
     public int lives = 3;
+
+    bool alive = true;
 
     void Start()
     {
@@ -54,7 +60,16 @@ public class PlayerControl : MonoBehaviour
     {
         lives -= 1;
         heart.LoseLife();
+        if (lives <= 0)
+            Die();
     }
+
+    public void Die()
+    {
+        uier.Death(lifeTime);
+        //Destroy(gameObject);
+    }
+
     void Throw()
     {
         toThrow.GetThrown(new Vector3(-throwVelocity.x*orientation, throwVelocity.y));
@@ -64,119 +79,127 @@ public class PlayerControl : MonoBehaviour
 
     void Update()
     {
-        walking = false;
-
-        if (Input.GetKey(KeyCode.A))
+        if (alive)
         {
-            rigid.velocity = new Vector2(-spd, rigid.velocity.y);
-            //transform.Translate(new Vector3( * Time.deltaTime, 0, 0));
-            if (!midair)
+            lifeTime += Time.deltaTime;
+            walking = false;
+
+            if (transform.position.y < -2000)
+                Die();
+
+            if (Input.GetKey(KeyCode.A))
             {
-                animator.SetBool("walking", true);
-            }
+                rigid.velocity = new Vector2(-spd, rigid.velocity.y);
+                //transform.Translate(new Vector3( * Time.deltaTime, 0, 0));
+                if (!midair)
+                {
+                    animator.SetBool("walking", true);
+                }
 
-            orientation = 1;
-            transform.localScale = new Vector2(-1, 1);
-            walking = true;
-        }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            rigid.velocity = new Vector2(spd, rigid.velocity.y);
-            //transform.Translate(new Vector3(spd * Time.deltaTime, 0, 0));
-            if (!midair)
+                orientation = 1;
+                transform.localScale = new Vector2(-1, 1);
+                walking = true;
+            }
+            else if (Input.GetKey(KeyCode.D))
             {
-                animator.SetBool("walking", true);
+                rigid.velocity = new Vector2(spd, rigid.velocity.y);
+                //transform.Translate(new Vector3(spd * Time.deltaTime, 0, 0));
+                if (!midair)
+                {
+                    animator.SetBool("walking", true);
+                }
+                orientation = -1;
+                transform.localScale = new Vector2(1, 1);
+                walking = true;
             }
-            orientation = -1;
-            transform.localScale = new Vector2(1, 1);
-            walking = true;
-        }
-        else
-        {
-            animator.SetBool("walking", false);
-            rigid.velocity = new Vector2(0, rigid.velocity.y);
-        }
-            
-
-        touchingSomething = rigid.IsTouchingLayers(groundMask);
-
-        if (Input.GetKeyDown(KeyCode.Space) && grounded)
-        {
-            animator.SetBool("walking", false);
-            //animator.SetBool("landed", false);
-            animator.SetBool("falling", false);
-            animator.SetTrigger("jumped");
-            grounded = false;
-            touchingSomething = false;
-            midair = true;
-            rigid.velocity = new Vector2(rigid.velocity.x, jumpSpeed);
-            transform.Translate(0, 10, 0);
-        }
-
-        if (touchingSomething)
-        {
-
-            Collider2D[] grounds = Physics2D.OverlapCircleAll(groundChecker.position, groundCheckerRadius, groundMask);
-            if (grounds.Length > 0)
-            {
-                midair = false;
-                grounded = true;
-                animator.SetBool("grounded", true);
-            }
-        }
-        else
-        {
-            animator.SetBool("grounded", false);
-            grounded = false;
-            midair = true;
-        }
-
-        if (midair)
-        {
-            if (rigid.velocity.y < 200)
-                animator.SetBool("falling", true);
-        }
-        else
-        {
-            animator.SetBool("falling", false);
-        }
-        /*else
-        {
-            Collider2D[] grounds = Physics2D.OverlapCapsuleAll(groundChecker.position, new Vector2(1, groundCheckerRadius * 2), CapsuleDirection2D.Horizontal, 0, groundMask);
-            if (grounds.Length == 0)
+            else
             {
                 animator.SetBool("walking", false);
-                animator.SetBool("landed", false);
-                animator.SetTrigger("midair");
-                midair = true;
-                grounded = false;
+                rigid.velocity = new Vector2(0, rigid.velocity.y);
             }
-        }*/
 
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            if (toThrow == null)
+
+            touchingSomething = rigid.IsTouchingLayers(groundMask);
+
+            if (Input.GetKeyDown(KeyCode.Space) && grounded)
             {
-                Collider2D[] colls = Physics2D.OverlapCircleAll(grabber.position, grabberRadius);
-                foreach (Collider2D c in colls)
+                animator.SetBool("walking", false);
+                //animator.SetBool("landed", false);
+                animator.SetBool("falling", false);
+                animator.SetTrigger("jumped");
+                grounded = false;
+                touchingSomething = false;
+                midair = true;
+                rigid.velocity = new Vector2(rigid.velocity.x, jumpSpeed);
+                transform.Translate(0, 10, 0);
+            }
+
+            if (touchingSomething)
+            {
+
+                Collider2D[] grounds = Physics2D.OverlapCircleAll(groundChecker.position, groundCheckerRadius, groundMask);
+                if (grounds.Length > 0)
                 {
-                    Throwable thr = c.gameObject.GetComponent<Throwable>();
-                    if (thr != null)
+                    midair = false;
+                    grounded = true;
+                    animator.SetBool("grounded", true);
+                }
+            }
+            else
+            {
+                animator.SetBool("grounded", false);
+                grounded = false;
+                midair = true;
+            }
+
+            if (midair)
+            {
+                if (rigid.velocity.y < 200)
+                    animator.SetBool("falling", true);
+            }
+            else
+            {
+                animator.SetBool("falling", false);
+            }
+            /*else
+            {
+                Collider2D[] grounds = Physics2D.OverlapCapsuleAll(groundChecker.position, new Vector2(1, groundCheckerRadius * 2), CapsuleDirection2D.Horizontal, 0, groundMask);
+                if (grounds.Length == 0)
+                {
+                    animator.SetBool("walking", false);
+                    animator.SetBool("landed", false);
+                    animator.SetTrigger("midair");
+                    midair = true;
+                    grounded = false;
+                }
+            }*/
+
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                if (toThrow == null)
+                {
+                    Collider2D[] colls = Physics2D.OverlapCircleAll(grabber.position, grabberRadius);
+                    foreach (Collider2D c in colls)
                     {
-                        Grab(thr);
-                        break;
+                        Throwable thr = c.gameObject.GetComponent<Throwable>();
+                        if (thr != null)
+                        {
+                            Grab(thr);
+                            break;
+                        }
                     }
                 }
-            }else
-            {
-                toThrow.Release();
-                toThrow = null;
+                else
+                {
+                    toThrow.Release();
+                    toThrow = null;
+                }
             }
-        }
 
-        if (Input.GetKeyDown(KeyCode.Q) && toThrow!=null)
-        {
-            Throw();
+            if (Input.GetKeyDown(KeyCode.Q) && toThrow != null)
+            {
+                Throw();
+            }
         }
     }
     private void LateUpdate()
@@ -189,6 +212,13 @@ public class PlayerControl : MonoBehaviour
             }
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == 13)
+            Die();
+    }
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(groundChecker.position, groundCheckerRadius);

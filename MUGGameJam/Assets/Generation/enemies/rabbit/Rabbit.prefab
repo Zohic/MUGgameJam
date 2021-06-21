@@ -219,7 +219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 733273330438706392}
-  killObjectSpeed: 450
+  killObjectSpeed: 650
   player: {fileID: 0}
   frontChecker: {fileID: 733273331490083653}
   checkerRadius: 30

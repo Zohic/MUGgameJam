@@ -17,7 +17,9 @@ public class ScrollControl : MonoBehaviour
     public bool handWorking = false;
     public PlayerControl player;
 
-    
+    public ChankSpawner spawner;
+
+    public float camWidth;
 
     void Start()
     {
@@ -29,6 +31,9 @@ public class ScrollControl : MonoBehaviour
     {
         if(left)
         {
+            if (scrollCamera.transform.position.x + camWidth/2 + scrollSpeed * speed * Time.deltaTime >= spawner.rightChunk.rightEnd.position.x)
+                return;
+
             scrollCamera.transform.Translate(scrollSpeed * speed * Vector3.right);
             scrollMaterial.SetTextureOffset("_NormalMap", offset);
 
@@ -37,6 +42,10 @@ public class ScrollControl : MonoBehaviour
                 offset -= Vector2.right * 10;
         }else
         {
+
+            if (scrollCamera.transform.position.x - camWidth/2 - scrollSpeed * speed * Time.deltaTime <= spawner.leftChunk.leftEnd.position.x)
+                return;
+
             scrollCamera.transform.Translate(scrollSpeed * speed * Vector3.left);
             scrollMaterial.SetTextureOffset("_NormalMap", offset);
             offset -= Vector2.right * offsetCoof * speed * Time.deltaTime;

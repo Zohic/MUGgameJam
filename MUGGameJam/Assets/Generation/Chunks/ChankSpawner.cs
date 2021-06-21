@@ -15,7 +15,7 @@ public class ChankSpawner : MonoBehaviour
     public PlayerControl player;
     public HandControl hand;
 
-    
+    public Chunk leftChunk, rightChunk;
 
     void Attach(Chunk movedOne, Chunk stilOne, bool left)
     {
@@ -48,7 +48,8 @@ public class ChankSpawner : MonoBehaviour
         List<Chunk> toDelete = new List<Chunk>();
         Chunk cur = begin;
 
-        
+        if (cur == null)
+            return;
 
         for(int i=0;i<num;i++)
         {
@@ -141,9 +142,25 @@ public class ChankSpawner : MonoBehaviour
                 ClearChunks(cur, hand.Dir, 10);
         }
         
-        beginChunk = FindChunk(player.transform.position);
+        beginChunk = cur;
     }
 
+
+    public Chunk GetMostLeft()
+    {
+        Chunk a = beginChunk;
+        while (a.leftNeighbor != null)
+            a = a.leftNeighbor;
+        return a;
+    }
+
+    public Chunk GetMostRight()
+    {
+        Chunk a = beginChunk;
+        while (a.rightNeighbor != null)
+            a = a.rightNeighbor;
+        return a;
+    }
 
     public void AddRandomChunks(Chunk begin, bool dir, int num)
     {
@@ -152,6 +169,10 @@ public class ChankSpawner : MonoBehaviour
         {
             prevOne = CreateRandomChunk(prevOne, dir);
         }
+
+        leftChunk = GetMostLeft();
+        rightChunk = GetMostRight();
+
     }
 
     public void SpawnAfterSpikes()
@@ -160,14 +181,33 @@ public class ChankSpawner : MonoBehaviour
         if (hand.Dir)
         {
             spikeChunk = FindChunk(hand.spikes[0].transform.position);
-            ClearChunks(spikeChunk, hand.Dir, 10);
-            AddRandomChunks(spikeChunk, hand.Dir, 4);
+            if(spikeChunk.leftNeighbor!=null)
+            {
+                ClearChunks(spikeChunk.leftNeighbor, hand.Dir, 10);
+                AddRandomChunks(spikeChunk.leftNeighbor, hand.Dir, 4);
+            }
+            else
+            {
+                ClearChunks(spikeChunk, hand.Dir, 10);
+                AddRandomChunks(spikeChunk, hand.Dir, 4);
+            }
+            
         }
         else
         {
             spikeChunk = FindChunk(hand.spikes[1].transform.position);
-            ClearChunks(spikeChunk, hand.Dir, 10);
-            AddRandomChunks(spikeChunk, hand.Dir, 4);
+            if (spikeChunk.rightNeighbor != null)
+            {
+                ClearChunks(spikeChunk.rightNeighbor, hand.Dir, 10);
+                AddRandomChunks(spikeChunk.rightNeighbor, hand.Dir, 4);
+
+            }
+            else
+            {
+                ClearChunks(spikeChunk, hand.Dir, 10);
+                AddRandomChunks(spikeChunk, hand.Dir, 4);
+            }
+                
         }
        
         
@@ -182,8 +222,7 @@ public class ChankSpawner : MonoBehaviour
     
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.T))
-            ClearChunks(beginChunk, false, 10);
+        
     }
 
 }

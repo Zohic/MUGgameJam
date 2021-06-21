@@ -6,7 +6,7 @@ public class HandControl : MonoBehaviour
 {
     public Animator handAnim, fingersAnim, clockAnim;
 
-    public float timeToNext;
+    public float timeToNext = 45;
     public float workingTimer;
     public bool working;
     public float timer;
@@ -19,11 +19,14 @@ public class HandControl : MonoBehaviour
     public GameObject[] spikes;
     public ChankSpawner spawner;
 
-
+    public AudioSource music;
+    public AudioClip common;
+    public AudioClip rush;
 
     void Start()
     {
-        
+        clockAnim.SetBool("go", true);
+        clockAnim.speed = 1.0f / timeToNext;
     }
 
     public void CloseFingers()
@@ -58,6 +61,8 @@ public class HandControl : MonoBehaviour
             spikes[1].SetActive(false);
         }
         Dir = !Dir;
+        music.clip = common;
+        music.Play();
     }
 
    
@@ -82,6 +87,8 @@ public class HandControl : MonoBehaviour
             SpikeAppear();
             spawner.ClearForSpikes();
             clockAnim.SetBool("go", false);
+            music.clip = rush;
+            music.Play();
         }
         if(working)
         {
@@ -102,6 +109,7 @@ public class HandControl : MonoBehaviour
                     spikes[1].GetComponent<Animator>().SetTrigger("stop");
                 }
                 spawner.SpawnAfterSpikes();
+                timeToNext = Random.Range(45, 60);
                 clockAnim.SetBool("go", true);
                 clockAnim.speed = 1.0f / timeToNext;
             }

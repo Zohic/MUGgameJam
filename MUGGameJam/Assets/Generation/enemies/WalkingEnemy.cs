@@ -9,7 +9,7 @@ public class WalkingEnemy : Enemy
     [SerializeField]
     float checkerRadius;
     [SerializeField]
-    LayerMask groundLayer;
+    public LayerMask groundLayer;
     public Rigidbody2D rigid;
 
     public float speed;

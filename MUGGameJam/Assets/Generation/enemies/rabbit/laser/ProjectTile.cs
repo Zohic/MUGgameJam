@@ -5,9 +5,11 @@ using UnityEngine;
 public class ProjectTile : MonoBehaviour
 {
     public Vector3 speed;
+    public bool destr;
     void Start()
     {
-        Destroy(gameObject, 5);
+        if(destr)
+            Destroy(gameObject, 5);
     }
 
     // Update is called once per frame
